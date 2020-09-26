@@ -20,7 +20,8 @@ function includeNum () {
 }
 
 function includeSpecial  () {
-  return String.fromCharCode(Math.floor(Math.random() * 15) +33);
+  var special = "!@#$%^&*(){}[]=<>/,.|~?";
+  return special[Math.floor(Math.random()*Symbol.length)];
     }
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
