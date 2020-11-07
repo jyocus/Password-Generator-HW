@@ -26,7 +26,7 @@ var beginPrompt = prompt('How many characters do you want?');
 var passwordLength = parseInt(beginPrompt);
 
 //Checks the length of the password the user has chosen
-if (passwordLength <= 8 && passwordLength >=128) {
+if (passwordLength <= 8 || passwordLength >=128) {
   alert('Your password must be between 8 and 128 characters')
   generatePassword();
 
@@ -45,10 +45,23 @@ if (passwordLength <= 8 && passwordLength >=128) {
 
     console.log(userChoices);
 
+    //Loop through the array to choose a random selected character based on the number of characters the user input
+    for (var index = 0; index < passwordLength; index++) {
+      var randomPass = Math.floor(Math.random() * userChoices.length);
+      password += userChoices[randomPass];
+      
+      } console.log(password);
+      
+    } else {
+      alert('Your password must contain at least one type of character')
+      generatePassword();
+    }
+    return password;
+
   };
   
 }
-};
+
 
 // var mincharCount = prompt("How many characters would you like?");
 //   if (value > 128 || value < 8)
