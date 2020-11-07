@@ -62,6 +62,9 @@ if (passwordLength <= 8 || passwordLength >=128) {
   
 }
 
+function clipboard(passwordText) {
+
+}
 
 // var mincharCount = prompt("How many characters would you like?");
 //   if (value > 128 || value < 8)
@@ -115,4 +118,5 @@ if (passwordLength <= 8 || passwordLength >=128) {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+clipboardBtn.addEventListener("click", clipboard);
 
