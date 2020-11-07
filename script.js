@@ -19,20 +19,34 @@ var numbers = '1234567890'
 var specialChar = ' !#$%&()*+,-./:;<=>?@[^_`{|}~';
 
 function generatePassword (){
+  var password = '';
+  var userChoices = '';
 
 var beginPrompt = prompt('How many characters do you want?');
 var passwordLength = parseInt(beginPrompt);
 
 //Checks the length of the password the user has chosen
-if (passwordLength >= 8 && passwordLength <=128) {
+if (passwordLength <= 8 && passwordLength >=128) {
+  alert('Your password must be between 8 and 128 characters')
+  generatePassword();
+
+} else {
   var chooseLowerCase = confirm('Do you want to use lowercase letters?');
   var chooseUpperCase = confirm('Do you want to use uppercase letters?');
   var chooseNumbers = confirm('Do you want to use numbers?');
   var chooseSpecialChar = confirm('Do you want to use special characters?');
 
-} else {
-  alert('Your password must be between 8 and 128 characters')
-  generatePassword();
+  //If any of the confirms are answered "ok" they will be added to the array
+  if (chooseLowerCase || chooseUpperCase || chooseNumbers || chooseSpecialChar){
+    if(chooseLowerCase) userChoices += lowerCase;
+    if(chooseUpperCase) userChoices += upperCase;
+    if(chooseNumbers) userChoices += numbers;
+    if(chooseSpecialChar) userChoices += specialChar;
+
+    console.log(userChoices);
+
+  };
+  
 }
 };
 
